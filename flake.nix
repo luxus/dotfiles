@@ -285,7 +285,7 @@
               network = with profiles; [
                 networking.resolved
                 networking.tailscale
-                networking.zerotier
+                # networking.zerotier
                 networking.tools
                 security.fail2ban
                 security.firewall
