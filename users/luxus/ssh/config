@@ -1,0 +1,12 @@
+Host rs21
+    HostName rs21.furiosa.org
+    User root
+
+Host rs21-de
+    HostName rs21-de.furiosa.org
+    User root
+
+Host vanessa
+    HostName vanessa.ts.furiosa.org
+    User luxus
+

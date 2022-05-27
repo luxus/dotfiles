@@ -18,7 +18,7 @@
       };
       to = {
         type = "github";
-        owner = "linyinfeng";
+        owner = "luxus";
         repo = "dotfiles";
       };
     };

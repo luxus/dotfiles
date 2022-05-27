@@ -5,9 +5,10 @@ let
 in
 {
   users.users.root = {
+    # using sops password file
     passwordFile = config.sops.secrets."user-password/root".path;
     openssh.authorizedKeys.keyFiles = [
-      ../yinfeng/ssh/authorized-keys/pgp.pub
+      ../luxus/ssh/authorized-keys/luxus.pub
     ];
   };
 

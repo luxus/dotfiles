@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  name = "yinfeng";
+  name = "luxus";
   uid = config.ids.uids.${name};
   user = config.users.users.${name};
   homeManager = config.home-manager.users.${name};
@@ -13,7 +13,7 @@ let
 in
 {
   imports = [
-    ./syncthing
+    # ./syncthing
   ];
 
   users.users.${name} = {
@@ -38,8 +38,7 @@ in
     groupNameIfPresent "plugdev";
 
     openssh.authorizedKeys.keyFiles = [
-      ./ssh/authorized-keys/pgp.pub
-      ./ssh/authorized-keys/t460p-win.pub
+      ./ssh/authorized-keys/luxus.pub
     ];
   };
 
@@ -63,8 +62,8 @@ in
     };
 
     programs.git = {
-      userName = "Lin Yinfeng";
-      userEmail = "lin.yinfeng@outlook.com";
+      userName = "luxus";
+      userEmail = "luxuspur@gmail.com";
       # do not sign by default
       # signing.signByDefault = true;
     };

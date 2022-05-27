@@ -3,7 +3,7 @@
 {
   ids.uids = {
     # human users
-    yinfeng = 1000;
+    luxus = 1000;
     nianyi = 1001;
 
     # other users

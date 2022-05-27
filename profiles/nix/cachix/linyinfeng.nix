@@ -1,10 +1,10 @@
 {
   nix = {
     settings.substituters = [
-      "https://linyinfeng.cachix.org"
+      "https://luxus.cachix.org"
     ];
     settings.trusted-public-keys = [
-      "linyinfeng.cachix.org-1:sPYQXcNrnCf7Vr7T0YmjXz5dMZ7aOKG3EqLja0xr9MM="
+      "luxus.cachix.org-1:eW/nJy5bZow2D3wf59qy7a9mfiZNjshIK/BozwgIlLU="
     ];
   };
 }

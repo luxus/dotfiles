@@ -13,7 +13,7 @@
     {
       i18n.defaultLocale = "en_US.UTF-8";
       console.keyMap = "us";
-      time.timeZone = "Asia/Shanghai";
+      time.timeZone = "Europe/Zurich";
 
       ec2 = {
         efi = false;
@@ -43,9 +43,9 @@
       security.acme.certs."main" = {
         dnsProvider = "cloudflare";
         credentialsFile = config.sops.templates.acme-credentials.path;
-        domain = "aws.li7g.com";
+        domain = "aws.furiosa.org";
         extraDomainNames = [
-          "aws.ts.li7g.com"
+          "aws.ts.furiosa.org"
         ];
       };
       sops.secrets."cloudflare-token".sopsFile = config.sops.secretsDir + /common.yaml;

@@ -9,6 +9,11 @@ let
       publicKey = "1Z1Z+wNd21Uhd1O9ujCdJVqcv40MTkBCpmSfwFoLrkY=";
       inherit port;
     };
+    vanessa = {
+      ip = "192.168.188.3/32";
+      publicKey = "ucLym/N2nVNc2uxEFCTY+KTJhYZ1KSCw35W0C5JGeyE=";
+      inherit port;
+    };
     xps8930 = {
       ip = "192.168.2.3/32";
       publicKey = "ucLym/N2nVNc2uxEFCTY+KTJhYZ1KSCw35W0C5JGeyE=";

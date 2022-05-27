@@ -206,6 +206,15 @@
               ];
               tests = import ./lib/tests;
             };
+            vanessa = {
+              system = "x86_64-linux";
+              modules = with nixos-hardware.nixosModules; [
+                common-pc
+                common-cpu-intel
+                common-pc-ssd
+              ];
+              tests = import ./lib/tests;
+            };
             xps8930 = {
               system = "x86_64-linux";
               modules = with nixos-hardware.nixosModules; [
@@ -357,11 +366,11 @@
             suites = nixos.lib.fix (suites: {
               base = with profiles; [ direnv git shells ];
               multimedia = with profiles; [ gnome sway desktop-applications chromium firefox rime fonts mime obs-studio ];
-              development = with profiles; [ development emacs tools tex postmarketos awscli terraform ];
+              development = with profiles; [ development tools tex postmarketos awscli terraform ];
               virtualization = [ ];
               multimediaDev = suites.multimedia ++ suites.development ++
                 (with profiles; [ xdg-dirs vscode ]);
-              synchronize = with profiles; [ onedrive digital-paper ];
+              synchronize = with profiles; [ digital-paper ];
               security = with profiles; [ gpg ];
 
               full = with suites; base ++ multimediaDev ++ virtualization ++ synchronize ++ security;
@@ -386,6 +395,7 @@
             nuc.hostname = "nuc.ts.li7g.com";
             t460p.hostname = "t460p.ts.li7g.com";
             xps8930.hostname = "xps8930.ts.li7g.com";
+            vanessa.hostname = "vanessa.ts.furiosa.org";
             g150ts.hostname = "g150ts.ts.li7g.com";
           };
         deploy.sshUser = "root";

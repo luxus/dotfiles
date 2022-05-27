@@ -1,111 +1,19 @@
 keys:
+  # PGP KEY
   - &main       7D2F4C6B9A8300CCDDB641FDDF14B55A7A29C30F
-  - &t460p      age1c8ex4vam0qx6kldl3w2tddhmejxkrlf90mmfe334myq2l9cnfq9sgehs5d
-  - &xps8930    age1ynhrpsfdwxm3ryzn6uyvqng5hca2em983qm6d8jkkhyq6u0w8qpq3gxxh0
-  - &x200s      age1naq9xtdmugcede56kpgfu8tu3gq20g6tgrt2x3vz08ge86rwvpqqfxaw2e
-  - &nuc        age1pf99e6kfd52kugec6t27t9nkere8vn3guk5t04v7ldde4cnlwpwsm0n4gj
-  - &nexusbytes age1xya6kmcpxw6n6xdp8pnl5kzhpu39vpfqn73cg9su8rvw63r89y8qc3xmy9
-  - &rica       age1eele84f8nufp7g2j8cws8z2su0kp9ldgcvj8gmgldc326j7ykv9qzxcuaa
-  - &vultr      age1knaw8w3lmmnwgncn65fegan62jkkpzg4hgqmpvaagqk8x26x5qlqs42efv
-  - &tencent    age1wzm6xztn2m08qr74hg29nv2qlz8537apl4kcqakfyg3gc8l0mcgstrqjpf
-  - &g150t-s    age1vxyz8za0se99gcne8yzzez7lx3w7jf9rlg7a0qt4gt7q03ca7urquhun6a
-  - &aws        age1m6tfhx22rdfd27v2666lqskpuag6fqz9rfdquqv4cktg88mv64yqusulpa
-  - &vm-test    age17cg7mctcy03vt7wckfezc0xv2ntanhqx48uma9x2cltxatg2dstqx45xhu
+# FIXME: adding age key and what is a main key?
+  - &vanessa    age1ncepfcrzfep624tpanhqfflafznh7ftuqffv0nfq24jhv3dwx40sltjkad
 
 creation_rules:
-  - path_regex: ^secrets/terraform\.yaml$
-    key_groups:
-    - pgp:
-      - *main
   - path_regex: ^secrets/common\.yaml$
     key_groups:
     - pgp:
       - *main
       age:
-      - *t460p
-      - *xps8930
-      - *x200s
-      - *nuc
-      - *nexusbytes
-      - *rica
-      - *vultr
-      - *tencent
-      - *aws
-      # no age key for g150t-s
-  - path_regex: ^secrets/infrastructure\.yaml$
+      - *vanessa
+  - path_regex: ^secrets/vanessa\.yaml$
     key_groups:
     - pgp:
       - *main
       age:
-      - *t460p
-      - *xps8930
-      - *x200s
-      - *nuc
-      - *nexusbytes
-      - *rica
-      - *vultr
-      - *tencent
-      - *aws
-      - *g150t-s
-  - path_regex: ^secrets/t460p\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *t460p
-  - path_regex: ^secrets/nuc\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *nuc
-      # TODO nuc down
-      - *aws
-  - path_regex: ^secrets/xps8930\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *xps8930
-  - path_regex: ^secrets/vultr\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *vultr
-  - path_regex: ^secrets/tencent\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *tencent
-  - path_regex: ^secrets/nexusbytes\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *nexusbytes
-  - path_regex: ^secrets/rica\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *rica
-  - path_regex: ^secrets/aws\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *aws
-  - path_regex: ^secrets/g150t-s\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *g150t-s
-  - path_regex: ^modules/sops/vm-test/test-secrets/.*\.yaml$
-    key_groups:
-    - pgp:
-      - *main
-      age:
-      - *vm-test
+      - *vanessa
