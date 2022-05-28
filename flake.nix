@@ -196,16 +196,6 @@
             NixOS = {
               tests = import ./lib/tests;
             };
-            t460p = {
-              system = "x86_64-linux";
-              modules = with nixos-hardware.nixosModules; [
-                common-pc
-                common-cpu-intel
-                common-pc-ssd
-                lenovo-thinkpad-t460s
-              ];
-              tests = import ./lib/tests;
-            };
             vanessa = {
               system = "x86_64-linux";
               modules = with nixos-hardware.nixosModules; [
@@ -213,57 +203,6 @@
                 common-cpu-intel
                 common-pc-ssd
               ];
-              tests = import ./lib/tests;
-            };
-            xps8930 = {
-              system = "x86_64-linux";
-              modules = with nixos-hardware.nixosModules; [
-                common-pc
-                common-cpu-intel
-                common-pc-ssd
-              ];
-              tests = import ./lib/tests;
-            };
-            x200s = {
-              system = "x86_64-linux";
-              modules = with nixos-hardware.nixosModules; [
-                common-pc
-                common-cpu-intel
-                common-pc-ssd
-              ];
-              tests = import ./lib/tests;
-            };
-            nuc = {
-              system = "x86_64-linux";
-              modules = with nixos-hardware.nixosModules; [
-                common-pc
-                common-cpu-intel
-                common-pc-ssd
-              ];
-              tests = import ./lib/tests;
-            };
-            vultr = {
-              system = "x86_64-linux";
-              tests = import ./lib/tests;
-            };
-            nexusbytes = {
-              system = "x86_64-linux";
-              tests = import ./lib/tests;
-            };
-            rica = {
-              system = "x86_64-linux";
-              tests = import ./lib/tests;
-            };
-            tencent = {
-              system = "x86_64-linux";
-              tests = import ./lib/tests;
-            };
-            g150ts = {
-              system = "x86_64-linux";
-              tests = import ./lib/tests;
-            };
-            aws = {
-              system = "x86_64-linux";
               tests = import ./lib/tests;
             };
           };
@@ -284,7 +223,7 @@
 
               network = with profiles; [
                 networking.resolved
-                networking.tailscale
+                # networking.tailscale
                 # networking.zerotier
                 networking.tools
                 security.fail2ban
@@ -313,7 +252,7 @@
               ];
               games = with profiles.graphical.game; [ steam minecraft ];
               monitoring = with profiles; [
-                services.telegraf-system
+                # services.telegraf-system
                 services.promtail
               ];
 
@@ -387,16 +326,7 @@
         deploy.nodes = digga.lib.mkDeployNodes
           (removeAttrs self.nixosConfigurations [ "NixOS" "bootstrap" ])
           {
-            vultr.hostname = "vultr.ts.li7g.com";
-            nexusbytes.hostname = "nexusbytes.ts.li7g.com";
-            rica.hostname = "rica.ts.li7g.com";
-            tencent.hostname = "tencent.ts.li7g.com";
-            x200s.hostname = "x200s.ts.li7g.com";
-            nuc.hostname = "nuc.ts.li7g.com";
-            t460p.hostname = "t460p.ts.li7g.com";
-            xps8930.hostname = "xps8930.ts.li7g.com";
             vanessa.hostname = "vanessa.ts.furiosa.org";
-            g150ts.hostname = "g150ts.ts.li7g.com";
           };
         deploy.sshUser = "root";
 

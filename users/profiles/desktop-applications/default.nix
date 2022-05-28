@@ -13,7 +13,7 @@ lib.mkIf config.home.graphical {
     # calibre
     element-desktop
     gimp
-    gnuradio
+    # gnuradio
     goldendict
     gparted
     inkscape
