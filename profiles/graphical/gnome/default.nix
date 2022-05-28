@@ -28,7 +28,7 @@ lib.mkIf
     5900 # VNC
   ];
 
-  boot.plymouth.enable = true;
+  # boot.plymouth.enable = true;
 
   environment.global-persistence.user = {
     directories = [

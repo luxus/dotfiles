@@ -1,12 +1,11 @@
 { pkgs, ... }:
 
 {
-  # persistence directories for jetbrains ides
+  # persistence directories for neovim
   environment.global-persistence.user.directories = [
-    ".config/Google"
-    ".config/JetBrains"
-
-    ".local/share/Google"
-    ".local/share/JetBrains"
+    ".config/lvim"
+    ".config/nvim"
+    ".local/share/nvim"
+    ".local/share/lunarvim"
   ];
 }

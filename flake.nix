@@ -283,8 +283,8 @@
                 ]);
 
               network = with profiles; [
-                networking.resolved
-                networking.tailscale
+                # networking.resolved
+                # networking.tailscale
                 # networking.zerotier
                 networking.tools
                 security.fail2ban
@@ -295,7 +295,6 @@
                 graphical.kde
                 graphical.sway
                 graphical.fonts
-                graphical.i18n
                 graphical.v4l2
                 services.pipewire
               ];
@@ -311,26 +310,25 @@
                 virtualization.wine
                 virtualization.podman
               ];
-              games = with profiles.graphical.game; [ steam minecraft ];
-              monitoring = with profiles; [
-                services.telegraf-system
-                services.promtail
-              ];
+              games = with profiles.graphical.game; [ steam ];
+              # monitoring = with profiles; [
+                # services.telegraf-system
+                # services.promtail
+              # ];
 
               workstation = (with suites; [
                 base
                 multimediaDev
                 virtualization
                 network
-                monitoring
+                # monitoring
               ]) ++ (with profiles; [
                 networking.network-manager
                 services.bluetooth
                 services.auto-upgrade
                 services.kde-connect
-                services.printing
-                security.hardware-keys
-                hardware.rtl-sdr
+                # services.printing
+                # security.hardware-keys
                 nix.nix-ld
               ]);
               mobileWorkstation = suites.workstation ++
@@ -341,7 +339,7 @@
               server = (with suites; [
                 base
                 network
-                monitoring
+                # monitoring
               ]) ++
               (with profiles; [
                 services.auto-upgrade
@@ -365,8 +363,8 @@
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = nixos.lib.fix (suites: {
               base = with profiles; [ direnv git shells ];
-              multimedia = with profiles; [ gnome sway desktop-applications chromium firefox rime fonts mime obs-studio ];
-              development = with profiles; [ development tools tex postmarketos awscli terraform ];
+              multimedia = with profiles; [ gnome sway desktop-applications rime fonts mime obs-studio ];
+              development = with profiles; [ development tools ];
               virtualization = [ ];
               multimediaDev = suites.multimedia ++ suites.development ++
                 (with profiles; [ xdg-dirs vscode ]);
@@ -387,16 +385,7 @@
         deploy.nodes = digga.lib.mkDeployNodes
           (removeAttrs self.nixosConfigurations [ "NixOS" "bootstrap" ])
           {
-            vultr.hostname = "vultr.ts.li7g.com";
-            nexusbytes.hostname = "nexusbytes.ts.li7g.com";
-            rica.hostname = "rica.ts.li7g.com";
-            tencent.hostname = "tencent.ts.li7g.com";
-            x200s.hostname = "x200s.ts.li7g.com";
-            nuc.hostname = "nuc.ts.li7g.com";
-            t460p.hostname = "t460p.ts.li7g.com";
-            xps8930.hostname = "xps8930.ts.li7g.com";
             vanessa.hostname = "vanessa.ts.furiosa.org";
-            g150ts.hostname = "g150ts.ts.li7g.com";
           };
         deploy.sshUser = "root";
 

@@ -19,8 +19,8 @@ in
   imports =
     suites.workstation ++
     (with profiles; [
-      nix.access-tokens
-      nix.nixbuild
+      # nix.access-tokens
+      # nix.nixbuild
       # security.tpm
       # networking.wireguard-home
       # networking.behind-fw
@@ -99,16 +99,17 @@ in
   #   waitDevice /dev/disk/by-uuid/0f9a546e-f458-46d9-88a4-4f6b157579ea
   #   ${pkgs.clevis}/bin/clevis luks unlock -d /dev/disk/by-uuid/0f9a546e-f458-46d9-88a4-4f6b157579ea -n crypt-data
   # '';
-  # fileSystems."/" = {
-  #   device = "tmpfs";
-  #   fsType = "tmpfs";
-  #   options = [ "defaults" "size=16G" "mode=755" ];
-  # };
-  fileSystems."/" = btrfsSubvolMain "@root" { neededForBoot = true; };
-  fileSystems."/nix" = btrfsSubvolMain "@nix" { neededForBoot = true; };
+  fileSystems."/" = {
+    device = "tmpfs";
+    fsType = "tmpfs";
+    options = [ "defaults" "size=16G" "mode=755" ];
+  };
+  # fileSystems."/" = btrfsSubvolMain "@root" { };
+  fileSystems."/nix" = btrfsSubvolMain "@nix" { };
+  # fileSystems."/home" = btrfsSubvolMain "@home" {  };
   fileSystems."/persist" = btrfsSubvolMain "@persist" { neededForBoot = true; };
   fileSystems."/var/log" = btrfsSubvolMain "@var-log" { neededForBoot = true; };
-  fileSystems."/mnt/btr_pool" = btrfsSubvolMain "@root" { neededForBoot = true; options = [ "subvolid=5" ]; };
+  # fileSystems."/mnt/btr_pool" = btrfsSubvolMain "@root" { options = [ "subvolid=5" ]; };
   # fileSystems."/swap" = btrfsSubvolMain "@swap" { };
   fileSystems."/boot" =
     {

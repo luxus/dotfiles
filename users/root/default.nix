@@ -11,7 +11,7 @@ in
       ../luxus/ssh/authorized-keys/luxus.pub
     ];
   };
-
+  security.sudo.wheelNeedsPassword = false;
   environment.global-persistence.user.users = [ "root" ];
   home-manager.users.root = { suites, ... }: {
     imports = suites.base;
