@@ -2,6 +2,7 @@
 
 {
   programs.fish.enable = true;
+  programs.starship.enableFishIntegration = true;
   environment.systemPackages = (with pkgs.fishPlugins; [
     foreign-env
     done

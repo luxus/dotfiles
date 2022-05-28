@@ -6,47 +6,46 @@ lib.mkIf config.home.graphical {
   };
 
   home.packages = with pkgs; [
-    anki
+    # anki
     _1password-gui
     # TODO python3Packages.apsw broken
     # https://github.com/NixOS/nixpkgs/issues/167626
     # calibre
     element-desktop
-    gimp
+    # gimp
     # gnuradio
-    goldendict
+    # goldendict
     gparted
-    inkscape
-    keepassxc
-    libreoffice-fresh
+    # inkscape
+    # keepassxc
+    # libreoffice-fresh
     lollypop
     meld
     mplayer
     brave
     obsidian
-    nur.repos.linyinfeng.clash-for-windows
-    nur.repos.linyinfeng.icalingua-plus-plus
-    picard
+    # nur.repos.linyinfeng.clash-for-windows
+    # nur.repos.linyinfeng.icalingua-plus-plus
+    # picard
     tdesktop
-    transmission-remote-gtk
+    # transmission-remote-gtk
     virt-manager
     xournalpp
   ];
 
   home.global-persistence = {
     directories = [
-      ".goldendict"
+      # ".goldendict"
 
-      ".config/Bitwarden"
+      # ".config/Bitwarden"
       ".config/Element"
-      ".config/icalingua"
-      ".config/unity3d" # unity3d game saves
-      ".config/transmission-remote-gtk"
-      ".local/share/Anki2"
+      # ".config/icalingua"
+      # ".config/unity3d" # unity3d game saves
+      # ".config/transmission-remote-gtk"
+      # ".local/share/Anki2"
       ".local/share/TelegramDesktop"
-      ".local/share/geary"
-
-      "Zotero"
+      # ".local/share/geary"
+      # "Zotero"
     ];
   };
 }
