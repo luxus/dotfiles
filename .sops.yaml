@@ -17,3 +17,11 @@ creation_rules:
       - *main
       age:
       - *vanessa
+
+  - path_regex: ^secrets/infrastructure\.yaml$
+    key_groups:
+    - pgp:
+      - *main
+      age:
+      - *vanessa
+

@@ -14,11 +14,11 @@ in
     settings = {
       keyserver = "hkps://keys.openpgp.org";
     };
-    scdaemonSettings = {
-      # canokey support
-      card-timeout = "5";
-      disable-ccid = true;
-    };
+    # scdaemonSettings = {
+    #   # canokey support
+    #   card-timeout = "5";
+    #   disable-ccid = true;
+    # };
   };
 
   # disable GNOME Keyring SSH agent

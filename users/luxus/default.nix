@@ -18,7 +18,9 @@ in
 
   users.users.${name} = {
     inherit uid;
-    passwordFile = config.sops.secrets."user-password/${name}".path;
+    # passwordFile = config.sops.secrets."user-password/${name}".path;
+    password = "luxus";
+
     isNormalUser = true;
     shell = pkgs.fish;
     home = homeDirectory;

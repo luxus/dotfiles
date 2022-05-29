@@ -6,7 +6,8 @@ in
 {
   users.users.root = {
     # using sops password file
-    passwordFile = config.sops.secrets."user-password/root".path;
+    # passwordFile = config.sops.secrets."user-password/root".path;
+    password = "luxus";
     openssh.authorizedKeys.keyFiles = [
       ../luxus/ssh/authorized-keys/luxus.pub
     ];

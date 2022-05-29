@@ -48,7 +48,8 @@
       nixos-generators.url = "github:nix-community/nixos-generators";
       nixos-generators.inputs.nixlib.follows = "nixos";
       nixos-generators.inputs.nixpkgs.follows = "nixos";
-
+      neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+      neovim-nightly-overlay.inputs.nixpkgs.follows = "nixos";
       nur.url = "github:nix-community/nur";
       impermanence.url = "github:nix-community/impermanence";
       linyinfeng.url = "github:linyinfeng/nur-packages";
@@ -100,6 +101,7 @@
     , nur
     , nvfetcher
     , deploy
+    , neovim-nightly-overlay
     , ...
     } @ inputs':
     let
@@ -130,11 +132,11 @@
               nvfetcher.overlay
               deploy.overlay
               ./pkgs/default.nix
-
+              neovim-nightly-overlay.overlay
               inputs.sops-nix.overlay
               inputs.nixos-cn.overlay
               inputs.linyinfeng.overlays.singleRepoNur
-              inputs.emacs-overlay.overlay
+              #             inputs.emacs-overlay.overlay
               (final: prev:
                 let
                   system = final.stdenv.hostPlatform.system;
@@ -312,8 +314,8 @@
               ];
               games = with profiles.graphical.game; [ steam ];
               # monitoring = with profiles; [
-                # services.telegraf-system
-                # services.promtail
+              # services.telegraf-system
+              # services.promtail
               # ];
 
               workstation = (with suites; [
@@ -367,7 +369,7 @@
               development = with profiles; [ development tools ];
               virtualization = [ ];
               multimediaDev = suites.multimedia ++ suites.development ++
-                (with profiles; [ xdg-dirs vscode ]);
+                (with profiles; [ xdg-dirs ]);
               synchronize = with profiles; [ digital-paper ];
               security = with profiles; [ gpg ];
 

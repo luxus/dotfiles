@@ -12,6 +12,7 @@ lib.mkIf config.home.graphical {
     # https://github.com/NixOS/nixpkgs/issues/167626
     # calibre
     element-desktop
+    strawberry
     # gimp
     # gnuradio
     # goldendict
@@ -24,6 +25,8 @@ lib.mkIf config.home.graphical {
     mplayer
     brave
     obsidian
+    wezterm
+    gitkraken
     # nur.repos.linyinfeng.clash-for-windows
     # nur.repos.linyinfeng.icalingua-plus-plus
     # picard

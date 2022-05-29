@@ -64,24 +64,24 @@ in
   #   host = "portal.li7g.com";
   #   client.enable = true;
   # };
-  services.godns = {
-    ipv4.settings = {
-      domains = [{
-        domain_name = "furiosa.org";
-        sub_domains = [ "vanessa" ];
-      }];
-      ip_type = "IPv4";
-      ip_interface = "enp6s0";
-    };
-    ipv6.settings = {
-      domains = [{
-        domain_name = "furiosa.org";
-        sub_domains = [ "vanessa" ];
-      }];
-      ip_type = "IPv6";
-      ip_interface = "enp6s0";
-    };
-  };
+  #services.godns = {
+  #  ipv4.settings = {
+  #   domains = [{
+  #     domain_name = "furiosa.org";
+  #     sub_domains = [ "vanessa" ];
+  #   }];
+  #   ip_type = "IPv4";
+  #   ip_interface = "enp6s0";
+  # };
+  # ipv6.settings = {
+  #   domains = [{
+  #     domain_name = "furiosa.org";
+  #     sub_domains = [ "vanessa" ];
+  #     }];
+  #     ip_type = "IPv6";
+  #     ip_interface = "enp6s0";
+  #   };
+  # };
   services.hercules-ci-agent.settings = {
     concurrentTasks = 2;
   };
@@ -99,27 +99,29 @@ in
   #   waitDevice /dev/disk/by-uuid/0f9a546e-f458-46d9-88a4-4f6b157579ea
   #   ${pkgs.clevis}/bin/clevis luks unlock -d /dev/disk/by-uuid/0f9a546e-f458-46d9-88a4-4f6b157579ea -n crypt-data
   # '';
- # fileSystems."/" = {
- #   device = "none";
- #   fsType = "tmpfs";
- #   options = [ "defaults" "size=5G" "mode=755" ];
- # };
+  # fileSystems."/" = {
+  #   device = "none";
+  #   fsType = "tmpfs";
+  #   options = [ "defaults" "size=5G" "mode=755" ];
+  # };
   #fileSystems."/" =
-   # { device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
-   #   fsType = "btrfs";
-   #   options = [ "subvol=root" ];
-   # };
+  # { device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
+  #   fsType = "btrfs";
+  #   options = [ "subvol=root" ];
+  # };
   #fileSystems."/" = btrfsSubvolMain "@root" { };
   #fileSystems."/nix" = btrfsSubvolMain "@nix" { neededForBoot = true; };
   #fileSystems."/persist" = btrfsSubvolMain "@persist" { neededForBoot = true; };
   #fileSystems."/var/log" = btrfsSubvolMain "@var-log" { neededForBoot = true; };
-     fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
+  fileSystems."/" =
+    {
+      device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
+    {
+      device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
     };
@@ -127,19 +129,21 @@ in
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/2c913cfd-aa74-4629-b8a0-0a0a080e1f19";
 
   fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
+    {
+      device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
       fsType = "btrfs";
       options = [ "subvol=persist" ];
       neededForBoot = true;
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
+    {
+      device = "/dev/disk/by-uuid/a5a16dd1-f62f-4175-9144-fd2cd8383643";
       fsType = "btrfs";
       options = [ "subvol=var-log" ];
       neededForBoot = true;
     };
-fileSystems."/boot" =
+  fileSystems."/boot" =
     {
       device = "/dev/disk/by-uuid/61B1-2C06";
       fsType = "vfat";

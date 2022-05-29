@@ -4,7 +4,6 @@
   ids.uids = {
     # human users
     luxus = 1000;
-    nianyi = 1001;
 
     # other users
     nixos = 1099;

@@ -38,7 +38,7 @@ lib.mkIf
       profile.${defaultProfile} = {
         default = true;
         visibleName = "Main";
-        font = "Iosevka Yinfeng 10";
+        font = "Iosevka 10";
         scrollOnOutput = false;
       };
     };
